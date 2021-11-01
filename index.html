@@ -1,12 +1,53 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Static Template</title>
+
+  	<title>Bear and Bees</title>
+  	<link rel="stylesheet" type="text/css" href="main.css">
+  	<script src="game.js"></script>
+  	<script>
+  		var bear;
+      var bees;
+      lastStingTime = new Date();
+  	</script>
+
   </head>
+
   <body>
-    <h1>This is a static template, there is no bundler or bundling involved!</h1>
+
+  	<header id="main-header">
+  		<h1>Help the bear escape the bees!</h1>
+  	</header>
+  	<body onload="start();">
+
+  	<div id="title">
+  		<p>
+  			Bear tries to avoid getting stung by <input type="number" id="beeNumber"> bees by running and jumping. The objective is to have as less stings as possible!
+  		</p>
+  		
+  		<p>
+  			You can adjust the bear's speed <input type="number" id="bearSpeed"> px/ms, bees' speed <input type="number" id="beeSpeed"> px/ms and the refresh period <input type="number" id="refPeriod">.
+  		</p>
+  		
+  	<header id="header">
+  		<h3>Press left, right, up, down keys to move the bear</h3>
+  	</header>
+
+  	</div>
+	
+  	<div id="scores">
+  		<p>
+  			Stings [] Best duration []
+  		</p>
+  			
+  	</div>
+
+  	<div id="board">
+  		<img src="./images/bear.gif" id="bear" alt="bear">
+
+			
+  	</div>
+
   </body>
+  
 </html>

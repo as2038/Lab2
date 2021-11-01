@@ -1,0 +1,40 @@
+body {
+	width:80%;
+	margin:auto;
+}
+
+#title {
+	padding: 1px;
+	padding-left: 40px;
+	background-color:lightgrey;
+}
+
+#scores {
+	padding: 1px;
+	padding-left: 40px;
+	background-color:pink;
+
+}
+
+#board {
+	padding: 1px;
+	padding-bottom: 350px;
+	background-color:lightgreen;
+}
+
+#main-header{
+	padding: 1px;
+	padding-left: 40px;
+	background-color:lightgrey;
+	color:black;
+	font-family: sans-serif;
+	font-size: 10px;
+}
+
+#header{
+	background-color:lightgrey;
+	color:black;
+	font-family: sans-serif;
+	font-size: 10px;
+}
+
