@@ -1,53 +1,44 @@
 <!DOCTYPE html>
-<html>
-  <head>
+<html lang="en">
 
-  	<title>Bear and Bees</title>
-  	<link rel="stylesheet" type="text/css" href="main.css">
-  	<script src="game.js"></script>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>JavaScript and DOM API</title>
+    <link rel="stylesheet" type="text/css" href="main.css" media="all" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script src="game.js"></script>
   	<script>
   		var bear;
       var bees;
       lastStingTime = new Date();
   	</script>
 
-  </head>
+    <body>
 
-  <body>
+        <div id="title">
+            <h1>Help the bear escape the bees !</h1>
+            <p>Bear tries to avoid being stung by <input type="text" id="nbBees" value="1" size="3"> bees by running and jumping. The objective is to have as less stings as possible!</p>
+            <p>You can ajust bees' speed <input type="text" id="speedBees" value="50" size="3"> px/ms
+                <br> and the refresh period <input type="text" id="periodTimer" value="10" size="3"> ms </p>
+            <h2>Press left, right, up, down keys to move the bear</h2>
 
-  	<header id="main-header">
-  		<h1>Help the bear escape the bees!</h1>
-  	</header>
-  	<body onload="start();">
+        </div>
+        <div id="scores">
+            <table>
+                <tr>
+                    <td>
+                        <p>Stings: [<span id="hits">0</span>]</p>
+                    </td>
+                    <td>
+                        <p>Best duration: [<span id="duration">?</span>]</p>
+                    </td>
+                </tr>
+            </table>
 
-  	<div id="title">
-  		<p>
-  			Bear tries to avoid getting stung by <input type="number" id="beeNumber"> bees by running and jumping. The objective is to have as less stings as possible!
-  		</p>
-  		
-  		<p>
-  			You can adjust the bear's speed <input type="number" id="bearSpeed"> px/ms, bees' speed <input type="number" id="beeSpeed"> px/ms and the refresh period <input type="number" id="refPeriod">.
-  		</p>
-  		
-  	<header id="header">
-  		<h3>Press left, right, up, down keys to move the bear</h3>
-  	</header>
+        </div>
+        <div id="board">
+            <img src="./images/bear.gif" id="bear" alt="bear">
+        </div>
+    </body>
 
-  	</div>
-	
-  	<div id="scores">
-  		<p>
-  			Stings [] Best duration []
-  		</p>
-  			
-  	</div>
-
-  	<div id="board">
-  		<img src="./images/bear.gif" id="bear" alt="bear">
-
-			
-  	</div>
-
-  </body>
-  
 </html>

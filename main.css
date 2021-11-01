@@ -1,40 +1,40 @@
-body {
-	width:80%;
-	margin:auto;
-}
-
-#title {
-	padding: 1px;
-	padding-left: 40px;
-	background-color:lightgrey;
-}
-
-#scores {
-	padding: 1px;
-	padding-left: 40px;
-	background-color:pink;
-
+#bear {
+  position: absolute;
+  left: 100px;
+  /*top: 240px;*/
+  width: 100px;
+  height: 160px;
 }
 
 #board {
-	padding: 1px;
-	padding-bottom: 350px;
-	background-color:lightgreen;
+  position: absolute;
+  height: 600px;
+  width: 1200px;
+  background-color: rgb(6, 136, 119);
+  align-content: center;
+  align-self: center;
 }
 
-#main-header{
-	padding: 1px;
-	padding-left: 40px;
-	background-color:lightgrey;
-	color:black;
-	font-family: sans-serif;
-	font-size: 10px;
+#title {
+  background-color: rgb(128, 128, 128);
+  align-content: center;
+  align-self: center;
 }
 
-#header{
-	background-color:lightgrey;
-	color:black;
-	font-family: sans-serif;
-	font-size: 10px;
+#scores {
+  background-color: rgb(247, 134, 241);
+  align-content: center;
+  align-self: center;
 }
 
+.location {
+  color: green;
+}
+
+#hits {
+  color: red;
+}
+
+#duration {
+  color: blue;
+}
