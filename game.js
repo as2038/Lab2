@@ -35,6 +35,10 @@ function Bear () {
 
 	this.setSpeed = function (e) {
 		this.dBear = e;
+		if (isNaN(e)) {
+			window.alert("Invalid bear speed")
+			this.dBear = 100; 
+		}
 	}
 }
 
