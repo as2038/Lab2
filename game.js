@@ -39,7 +39,7 @@ function Bear () {
 			window.alert("Invalid bear speed")
 			this.dBear = 100; 
 		}
-	}
+	};
 }
 
 function start() {
