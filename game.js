@@ -32,11 +32,15 @@ function Bear () {
 		if (this.y < 0) this.y = 0;
 		if (this.y > h - ih) this.y = h - ih;	
 	};
+
+	this.setSpeed = function (e) {
+		this.dBear = e;
+	}
 }
 
 function start() {
 	bear = new Bear();
-	document.addEventListener("keydown", moveBear, false);
+	document.addEventListener("keydown", moveBear, false);	
 }
 
 
