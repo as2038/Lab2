@@ -174,6 +174,6 @@ function moveBees() {
 
 function updateBees() {
 	moveBees();
-	let period = 10;
+	let period = document.getElementById("periodTimer").value;
 	updateTimer = setTimeout('updateBees()', period);
 }
