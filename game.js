@@ -44,9 +44,9 @@ function Bear () {
 
 function start() {
 	bear = new Bear();
-	document.addEventListener("keydown", moveBear, false);	
-
-
+	document.addEventListener("keydown", moveBear, false);
+	bees = new Array();
+	makeBees();
 }
 
 
@@ -112,7 +112,9 @@ class Bee {
 	}
 }
 
-
+function getRandomInt(max) {
+	return Math.floor((Math.random() * (max+1)));
+}
 
 function createBeeImg(wNum) {
 	let boardDiv = document.getElementById("board");
@@ -140,3 +142,21 @@ function createBeeImg(wNum) {
 	return img;
 }
 
+function makeBees() {
+	let nbBees = document.getElementById("nbBees").value;
+	nbBees = Number(nbBees);
+
+	if (isNaN(nbBees)) { 
+		window.alert("Invalid number of bees");
+		return;
+	} 
+
+	let i = 1;
+	while (i <= nbBees) {
+		var num = i;
+		var bee = new Bee(num);
+		bee.display();
+		bees.push(bee);
+		i++;
+	}
+}
