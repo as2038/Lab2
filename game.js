@@ -47,8 +47,8 @@ function start() {
 	document.addEventListener("keydown", moveBear, false);
 	bees = new Array();
 	makeBees();
+	updateBees()
 }
-
 
 function moveBear(e) {
 	const KEYUP = 38;
@@ -159,4 +159,21 @@ function makeBees() {
 		bees.push(bee);
 		i++;
 	}
+}
+
+
+function moveBees() {
+	let speed = document.getElementById("speedBees").value;
+
+	for (let i = 0; i < bees.length; i++) {
+		let dx = getRandomInt(2 * speed) - speed;
+		let dy = getRandomInt(2 * speed) - speed;
+		bees[i].move(dx, dy);
+	}
+}
+
+function updateBees() {
+	moveBees();
+	let period = 10;
+	updateTimer = setTimeout('updateBees()', period);
 }
