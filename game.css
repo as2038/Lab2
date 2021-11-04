@@ -42,3 +42,9 @@
   color: blue;
 }
 
+#gameover {
+  font-size: 100px;
+  color: red;
+  padding-left: 300px;
+}
+

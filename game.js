@@ -6,13 +6,13 @@ function Bear () {
 	this.y = this.htmlElement.offsetTop;
 	
 	this.move = function (xDir, yDir) {
-		this.fitBounds();
 		this.x += this.dBear * xDir;
 		this.y += this.dBear * yDir;
 		this.display();
 	};
 	
 	this.display = function () {
+		this.fitBounds();
 		this.htmlElement.style.left = this.x + "px";
 		this.htmlElement.style.top = this.y + "px";
 		this.htmlElement.style.display = "absolute";
@@ -43,8 +43,13 @@ function Bear () {
 }
 
 function start() {
+	hits.innerHTML = 0;
+	duration.innerHTML = 0;
+	gameover.innerHTML = "";
 	bear = new Bear();
 	document.addEventListener("keydown", moveBear, false);
+	//document.addEventListener("keydown", function(){let lasStingTime = 0;}, true);
+	
 	bees = new Array();
 	makeBees();
 	updateBees()
@@ -161,7 +166,6 @@ function makeBees() {
 	}
 }
 
-
 function moveBees() {
 	let speed = document.getElementById("speedBees").value;
 
@@ -169,11 +173,60 @@ function moveBees() {
 		let dx = getRandomInt(2 * speed) - speed;
 		let dy = getRandomInt(2 * speed) - speed;
 		bees[i].move(dx, dy);
+
+		isHit(bees[i], bear);
 	}
 }
 
 function updateBees() {
+	if (hits.innerHTML >= 1000) {
+		gameover.innerHTML = "GAME OVER!";		
+	}
 	moveBees();
 	let period = document.getElementById("periodTimer").value;
 	updateTimer = setTimeout('updateBees()', period);
+}
+
+function isHit(defender, offender) {
+
+	if (overlap(defender, offender)) {
+		let score = hits.innerHTML;
+		score = Number(score) + 1;
+		hits.innerHTML = score;
+
+		let newStingTime = new Date();
+		let thisDuration = newStingTime - lastStingTime;
+		lastStingTime = newStingTime;
+		let longestDuration = Number(duration.innerHTML);
+
+		if (longestDuration === 0) 
+			longestDuration = thisDuration;
+		else {
+			if (longestDuration < thisDuration)
+				longestDuration = thisDuration;
+		}
+		document.getElementById("duration").innerHTML = longestDuration;
+	}
+}
+
+function overlap(element1, element2) {
+	left1 = element1.htmlElement.offsetLeft;
+	top1 = element1.htmlElement.offsetTop;
+	right1 = element1.htmlElement.offsetLeft + element1.htmlElement.offsetWidth;
+	bottom1 = element1.htmlElement.offsetTop + element1.htmlElement.offsetHeight;
+
+	left2 = element2.htmlElement.offsetLeft;
+	top2 = element2.htmlElement.offsetTop;
+	right2 = element2.htmlElement.offsetLeft + element2.htmlElement.offsetWidth;
+	bottom2 = element2.htmlElement.offsetTop + element2.htmlElement.offsetHeight;
+
+	x_intersect = Math.max(0, Math.min(right1, right2) - Math.max(left1, left2));
+	y_intersect = Math.max(0, Math.min(bottom1, bottom2) - Math.max(top1, top2));
+	intersectArea = x_intersect * y_intersect;
+
+	if (intersectArea == 0 || isNaN(intersectArea)) {
+		return false;
+	}
+
+	return true;
 }
