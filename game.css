@@ -41,7 +41,7 @@
 #duration {
   color: blue;
 }
-
+/* For the "Game over!" text I added. */
 #gameover {
   font-size: 100px;
   color: red;

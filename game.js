@@ -173,7 +173,7 @@ function makeBees() {
 		i++;
 	}
 }
-
+//Loops through bee array and deletes every bee.
 function deleteBees() {
 	let j = 1;
 	while (bees.length > 0){
