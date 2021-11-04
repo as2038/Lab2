@@ -44,11 +44,11 @@ function Bear () {
 
 function start() {
 	hits.innerHTML = 0;
-	duration.innerHTML = 0;
 	gameover.innerHTML = "";
+
 	bear = new Bear();
 	document.addEventListener("keydown", moveBear, false);
-	//document.addEventListener("keydown", function(){let lasStingTime = 0;}, true);
+	document.addEventListener("keydown", function(){let lastStingTime = 0;});
 	
 	bees = new Array();
 	makeBees();
@@ -148,6 +148,14 @@ function createBeeImg(wNum) {
 }
 
 function makeBees() {
+	let j = 1;
+	while (bees.length > 0){
+		var beeImage = document.getElementById("bee" + j);
+		beeImage.parentElement.removeChild(beeImage);
+		bees.shift();
+		j++;
+	}
+
 	let nbBees = document.getElementById("nbBees").value;
 	nbBees = Number(nbBees);
 
@@ -180,7 +188,7 @@ function moveBees() {
 
 function updateBees() {
 	if (hits.innerHTML >= 1000) {
-		gameover.innerHTML = "GAME OVER!";		
+		gameover.innerHTML = "GAME OVER!";	
 	}
 	moveBees();
 	let period = document.getElementById("periodTimer").value;
