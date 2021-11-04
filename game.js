@@ -49,7 +49,6 @@ function start() {
 
 	bear = new Bear();
 	document.addEventListener("keydown", moveBear, false);
-	//document.addEventListener("keydown", function(){lastStingTime = 0;});
 
 	bees = new Array();
 	deleteBees();
